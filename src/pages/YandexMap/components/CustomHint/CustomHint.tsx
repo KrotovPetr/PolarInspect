@@ -1,4 +1,4 @@
-import {Icon, Label, RadioButton, RadioButtonOption, Text} from '@gravity-ui/uikit';
+import {Icon, Label, RadioButtonOption, Text} from '@gravity-ui/uikit';
 import {FC, useState} from 'react';
 import {TPoints} from '../../utils';
 import {CircleCheckFill, CircleExclamationFill, TriangleExclamation} from '@gravity-ui/icons';
