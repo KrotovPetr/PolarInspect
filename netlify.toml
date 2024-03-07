@@ -1,6 +1,6 @@
-build:
-  base: /frontend
-  command: npm run build
-  commandOrigin: ui
-  publish: /frontend/build
-  publishOrigin: config
+[build]
+  base = "/frontend"
+  command = "npm run build"
+  commandOrigin = "ui"
+  publish = "/frontend/build"
+  publishOrigin = "config"
