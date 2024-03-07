@@ -130,7 +130,7 @@ export const points: TPoints[] = [
     {
         id: '18',
         coordinates: [61.702756, 30.684779],
-        title: 'Хеллоу',
+        title: 'Something about somebody',
         theme: 'Success',
         image: BadSupport,
     },

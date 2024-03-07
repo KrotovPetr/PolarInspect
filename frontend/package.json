@@ -9,23 +9,24 @@
     "bem-cn-lite": "^4.1.0",
     "chart.js": "^4.4.2",
     "cra-template-gravity-ui-pure": "1.1.1",
+    "gh-pages": "^6.1.1",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.2",
-    "react-scripts": "5.0.1",
-    "recharts": "^2.12.2"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "husky install",
     "lint:js": "eslint --ext .js,.jsx,.ts,.tsx .",
     "lint:styles": "stylelint '{styles,src}/**/*.scss'",
     "lint:prettier": "prettier --check '**/*.md'",
-    "lint": "npm run lint:js && npm run lint:styles && npm run lint:prettier"
+    "lint": "npm run lint:js && npm run lint:styles && npm run lint:prettier",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,25 +45,12 @@
     "@types/react": "^18.2.63",
     "@types/react-dom": "^18.2.19",
     "eslint": "^8.57.0",
-    "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "prettier": "^3.2.5",
     "sass": "^1.71.1",
     "sass-loader": "^13.3.3",
     "stylelint": "^15.11.0",
     "typescript": "^5.3.3"
-  },
-  "lint-staged": {
-    "*.{scss}": [
-      "stylelint --fix --quiet"
-    ],
-    "*.{js,jsx,ts,tsx}": [
-      "eslint --fix --quiet",
-      "prettier --write"
-    ],
-    "*.md": [
-      "prettier --write"
-    ]
   },
   "engines": {
     "node": ">=18"

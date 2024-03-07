@@ -2,7 +2,10 @@ import {Alert, Card, Text} from '@gravity-ui/uikit';
 import classes from './Home.module.css';
 
 export const Home = () => {
-    const news = [{date: '05.03.2024', title: 'Добавлена карта Яндекс'}];
+    const news = [
+        {date: '05.03.2024', title: 'Добавлена карта Яндекс'},
+        {date: '07.03.2024', title: 'Добавил кастомную карту от Яндекс'},
+    ];
     return (
         <Card type="action" className={classes.card}>
             <Text>Whats new?</Text>
