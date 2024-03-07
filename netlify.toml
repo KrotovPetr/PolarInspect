@@ -1,6 +1,6 @@
 build:
-  base: /opt/build/repo/frontend
+  base: /frontend
   command: npm run build
   commandOrigin: ui
-  publish: /opt/build/repo/frontend/build
+  publish: /frontend/build
   publishOrigin: config
