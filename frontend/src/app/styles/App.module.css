@@ -4,15 +4,12 @@
     box-sizing: border-box;
 }
 
-.container {
+.content {
+    padding: 15px;
     width: 100%;
     height: fit-content;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-}
-
-.content {
-    padding: 15px;
 }

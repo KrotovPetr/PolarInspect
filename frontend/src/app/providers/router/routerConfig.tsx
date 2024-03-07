@@ -2,6 +2,7 @@ import {RouteProps} from 'react-router-dom';
 import {YandexMap} from '../../../pages/YandexMap/YandexMap';
 import {Home} from '../../../pages/Home/Home';
 import {MyGeoMap} from '../../../pages/MyGeoMap/MyGeoMap';
+import {YandexCustom} from '../../../pages/YandexCustom';
 
 export const routerConfig: Array<RouteProps> = [
     {
@@ -12,6 +13,11 @@ export const routerConfig: Array<RouteProps> = [
     {
         path: '/yandex',
         element: <YandexMap />,
+        caseSensitive: false,
+    },
+    {
+        path: '/yandex-custom',
+        element: <YandexCustom />,
         caseSensitive: false,
     },
     {

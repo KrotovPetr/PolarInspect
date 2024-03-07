@@ -1,7 +1,6 @@
 import ReactDOMServer from 'react-dom/server';
 import {CustomHint} from './components/CustomHint/CustomHint';
 import BadSupport from '../../shared/images/support2.png';
-import * as echarts from 'echarts';
 
 export type TPoints = {
     id: string;
@@ -57,4 +56,3 @@ export const collection = {
         };
     }),
 };
-

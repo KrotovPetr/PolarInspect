@@ -1,0 +1,26 @@
+.links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-flow: row nowrap;
+    height: 30px;
+}
+
+.link {
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.link:visited {
+    text-decoration: none;
+}
+.link:hover {
+    text-decoration: none;
+}
+.link:active {
+    text-decoration: none;
+}

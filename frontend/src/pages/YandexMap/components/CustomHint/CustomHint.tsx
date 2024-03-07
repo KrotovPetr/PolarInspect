@@ -1,4 +1,4 @@
-import {Icon, Label, RadioButton, RadioButtonOption, Text} from '@gravity-ui/uikit';
+import {Icon, Label, Text} from '@gravity-ui/uikit';
 import {FC, useState} from 'react';
 import {TPoints} from '../../utils';
 import {CircleCheckFill, CircleExclamationFill, TriangleExclamation} from '@gravity-ui/icons';
@@ -9,7 +9,6 @@ type Props = {
 };
 
 export const CustomHint: FC<Props> = ({data}) => {
-    const [type, setType] = useState<string>('Image');
     const getIcon = (theme: 'Warning' | 'Danger' | 'Success') => {
         if (theme === 'Warning') {
             return TriangleExclamation;
@@ -19,11 +18,6 @@ export const CustomHint: FC<Props> = ({data}) => {
 
         return CircleCheckFill;
     };
-
-    const options: RadioButtonOption[] = [
-        {value: 'Image', content: 'Image'},
-        {value: 'Metric', content: 'Metric'},
-    ];
 
     return (
         <>

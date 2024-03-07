@@ -1,0 +1,16 @@
+export const cards = [
+    {name: 'Участок 21M', type: 'warning', message: 'Possible flood'},
+    {name: 'Участок 22M', type: 'danger', message: 'Possible flood'},
+    {name: 'Участок 23M', type: 'success', message: 'Possible flood'},
+    {name: 'Участок 24M', type: 'success', message: 'Possible flood'},
+    {name: 'Участок 25M', type: 'success', message: 'Possible flood'},
+    {name: 'Участок 26M', type: 'danger', message: 'Possible flood'},
+    {name: 'Участок 27M', type: 'warning', message: 'Possible flood'},
+    {name: 'Участок 28M', type: 'danger', message: 'Possible flood'},
+    {name: 'Участок 29M', type: 'success', message: 'Possible flood'},
+    {name: 'Участок 30M', type: 'success', message: 'Possible flood'},
+    {name: 'Участок 31M', type: 'success', message: 'Possible flood'},
+    {name: 'Участок 32M', type: 'success', message: 'Possible flood'},
+    {name: 'Участок 33M', type: 'warning', message: 'Possible flood'},
+    {name: 'Участок 34M', type: 'warning', message: 'Possible flood'},
+];
