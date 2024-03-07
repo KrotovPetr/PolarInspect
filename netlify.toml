@@ -2,5 +2,5 @@
   base = "/frontend"
   command = "npm run build"
   commandOrigin = "ui"
-  publish = "/frontend/build"
+  publish = "/build"
   publishOrigin = "config"
