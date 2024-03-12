@@ -1,11 +1,17 @@
 import React, {Suspense, useCallback} from 'react';
 import {Route, RouteProps, Routes} from 'react-router-dom';
-import {routerConfig} from '../routerConfig';
+import {RouteCustomProps, routerConfig} from '../routerConfig';
 export const AppRouter = () => {
-    const renderWithWrapper = useCallback((route: RouteProps) => {
+    const renderWithWrapper = useCallback((route: RouteCustomProps) => {
         const element = <Suspense fallback={<h1>Loader</h1>}>{route.element}</Suspense>;
 
-        return <Route key={route.path} path={route.path} element={element} />;
+        return route.indexPage ? (
+            <Route key={route.path} path={route.path} element={element}>
+                <Route index element={route.indexPage} />
+            </Route>
+        ) : (
+            <Route key={route.path} path={route.path} element={element} />
+        );
     }, []);
 
     return (

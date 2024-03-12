@@ -1,25 +1,27 @@
 import {FC} from 'react';
-import {Link} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 import classes from './LinksContainer.module.css';
+import {Tabs} from '@gravity-ui/uikit';
 
-type TLink = {
-    to: string;
-    content: string;
-};
-type Props = {
-    links: TLink[];
-};
+export const LinksContainer: FC = () => {
+    const navigate = useNavigate();
+    const {pathname} = useLocation();
 
-export const LinksContainer: FC<Props> = ({links}) => {
+    const getActiveTab = (pathname: string) => {
+        const route = pathname.split('/')[1];
+        return route === 'upload' ? 'upload' : 'monitoring';
+    };
+
     return (
-        <div className={classes.links}>
-            {links.map((link: TLink) => {
-                return (
-                    <Link key={link.to} to={link.to} className={classes.link}>
-                        {link.content}
-                    </Link>
-                );
-            })}
-        </div>
+        <Tabs
+            activeTab={getActiveTab(pathname)}
+            items={[
+                {id: 'upload', title: 'Выгрузка'},
+                {id: 'monitoring', title: 'Мониторинг'},
+            ]}
+            onSelectTab={(value: string) => {
+                navigate('/' + value + (value === 'monitoring' ? '/map' : ''));
+            }}
+        />
     );
 };

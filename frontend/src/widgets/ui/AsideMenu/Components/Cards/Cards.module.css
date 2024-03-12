@@ -1,14 +1,10 @@
-.asideMenu {
-    flex: 1;
-}
-
 .cards {
     overflow: auto;
     padding: 0 10px;
     display: flex;
     flex-flow: column nowrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     gap: 10px;
-    height: 720px;
+    flex: 1;
 }

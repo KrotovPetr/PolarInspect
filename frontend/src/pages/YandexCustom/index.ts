@@ -1,1 +1,1 @@
-export * from './YandexCustom';
+export * from './MonitoringPage';

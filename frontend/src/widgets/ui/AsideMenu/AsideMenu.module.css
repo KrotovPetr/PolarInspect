@@ -1,0 +1,19 @@
+.asideMenu {
+    flex: 1;
+    height: 720px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.asideHeader {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+    padding: 0 0 0 10px;
+}

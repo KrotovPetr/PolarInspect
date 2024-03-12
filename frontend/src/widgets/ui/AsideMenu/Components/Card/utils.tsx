@@ -1,5 +1,4 @@
-import BadSupport from '../../../../shared/images/support2.png';
-
+import BadSupport from '../../../../../shared/images/support2.png';
 export type TPoints = {
     id: string;
     coordinates: number[];
@@ -135,37 +134,6 @@ export const points: TPoints[] = [
         image: BadSupport,
     },
 ];
-
-export const pipes = [
-    {id: 'Участок Северный', children: [2, 1, 3]},
-    {id: 'Участок Южный', children: [2, 18, 16, 14]},
-    {id: 'Участок Западный', children: [2, 15, 14]},
-    {id: 'Участок Восточный', children: [2, 8, 11, 10]},
-    {id: 'Участок Юго-западный', children: [1, 7, 8]},
-    {id: 'Участок Юго-восточный', children: [2, 6, 9]},
-    {id: 'Участок Северо-западный', children: [2, 5, 12]},
-    {id: 'Участок Северо-восточный', children: [2, 7, 11]},
-];
-
-export const getCoordinates = (pointsIds: string[]) => {
-    const pipePoints = pointsIds.map((pointId) => {
-        return points[Number(pointId) - 1].coordinates;
-    });
-
-    return pipePoints;
-};
-
-export const mapState = {
-    center: [61.700265, 30.689362],
-    zoom: 15.4,
-    behaviors: ['default', 'scrollZoom'],
-};
-
-export const getPlacemarkColor = (theme: 'Warning' | 'Danger' | 'Success') => {
-    if (theme === 'Warning') return 'islands#yellowDotIcon';
-    if (theme === 'Danger') return 'islands#redDotIcon';
-    return 'islands#greenDotIcon';
-};
 
 export const getPipeColor = (pointsIds: string[]) => {
     const pipePoints = pointsIds.map((pointId) => {

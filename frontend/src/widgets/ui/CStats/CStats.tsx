@@ -1,4 +1,4 @@
-import {PieGraph} from '../../../../shared/ui';
+import {PieGraph} from '../../../shared/ui';
 import {data} from './utils';
 
 export const CStats = () => {

@@ -2,7 +2,7 @@ import {Card, Icon, Label, Link, Text} from '@gravity-ui/uikit';
 import classes from './CardComponent.module.css';
 import {CircleCheckFill, CircleExclamationFill, TriangleExclamation} from '@gravity-ui/icons';
 import {FC} from 'react';
-import {getPipeColor} from '../../../../utils';
+import {getPipeColor} from './utils';
 
 type Props = {
     card: any;

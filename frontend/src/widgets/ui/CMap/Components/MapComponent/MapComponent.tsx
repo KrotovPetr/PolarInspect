@@ -6,7 +6,6 @@ import {
     getPlacemarkColor,
     getPointsFromPipes,
     mapState,
-    points,
 } from '../../utils';
 import {useState} from 'react';
 import {Modal} from '@gravity-ui/uikit';

@@ -1,9 +1,7 @@
 .mapContainer {
-    width: 100%;
     display: flex;
     flex-flow: row nowrap;
     align-items: stretch;
     justify-content: center;
-    margin: 15px 0;
     gap: 15px;
 }

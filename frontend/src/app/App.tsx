@@ -3,6 +3,7 @@ import {Header} from '../widgets';
 import {AppRouter} from './providers/router/ui/AppRouter';
 import classes from './styles/App.module.css';
 import {useState} from 'react';
+import {Outlet} from 'react-router-dom';
 
 const App = () => {
     const [theme, setTheme] = useState<'light' | 'dark'>('light');
