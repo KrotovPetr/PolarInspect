@@ -16,7 +16,7 @@ export const MapComponent = ({pipes}: any) => {
     return (
         <>
             <YMaps>
-                <Map width={'75vw'} height={'720px'} state={mapState}>
+                <Map width={'100%'} height={'720px'} state={mapState}>
                     {getPointsFromPipes(pipes).map((point: TPoints) => {
                         return (
                             <Placemark
