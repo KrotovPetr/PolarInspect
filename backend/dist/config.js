@@ -1,0 +1,22 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+exports.__esModule = true;
+exports.CLIENT_URL = exports.API_URL = exports.SMTP_PORT = exports.SMTP_PASSWORD = exports.SMTP_USER = exports.SMTP_HOST = exports.JWT_REFRESH_SECRET = exports.JWT_ACCESS_SECRET = exports.DB_PORT = exports.DB_HOST = exports.DB_PASSWORD = exports.DB_USER = exports.DB_NAME = exports.PORT = void 0;
+var dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1["default"].config();
+exports.PORT = process.env.PORT;
+exports.DB_NAME = process.env.DB_NAME;
+exports.DB_USER = process.env.DB_USER;
+exports.DB_PASSWORD = process.env.DB_PASSWORD;
+exports.DB_HOST = process.env.DB_HOST;
+exports.DB_PORT = process.env.DB_PORT;
+exports.JWT_ACCESS_SECRET = process.env.JWT_ACCESS_SECRET;
+exports.JWT_REFRESH_SECRET = process.env.JWT_REFRESH_SECRET;
+exports.SMTP_HOST = process.env.SMTP_HOST;
+exports.SMTP_USER = process.env.SMTP_USER;
+exports.SMTP_PASSWORD = process.env.SMTP_PASSWORD;
+exports.SMTP_PORT = process.env.SMTP_PORT;
+exports.API_URL = process.env.API_URL;
+exports.CLIENT_URL = process.env.CLIENT_URL;
