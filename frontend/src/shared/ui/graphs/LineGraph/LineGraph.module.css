@@ -1,14 +1,14 @@
-.pieBoxS {
+.lineBoxS {
     width: 100px;
     height: 100px;
 }
 
-.pieBoxM {
+.lineBoxM {
     width: 200px;
     height: 200px;
 }
 
-.pieBoxXL {
-    width: 250px;
-    height: 250px;
+.lineBoxXL {
+    width: 500px;
+    height: 210px;
 }

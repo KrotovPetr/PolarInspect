@@ -1,8 +1,17 @@
-.statsContainer {
+.stats {
     display: flex;
-    flex-flow: row nowrap;
-    align-items: stretch;
-    justify-content: center;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
     gap: 15px;
     flex: 3;
+}
+
+.graphCard {
+    padding: 15px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
 }

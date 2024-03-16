@@ -1,8 +1,5 @@
-import {RouteObject, RouteProps} from 'react-router-dom';
-import {YandexMap} from '../../../pages/YandexMap/YandexMap';
-import {Home} from '../../../pages/Home/Home';
-import {MyGeoMap} from '../../../pages/MyGeoMap/MyGeoMap';
-import {MonitoringPage} from '../../../pages/YandexCustom';
+import {RouteProps} from 'react-router-dom';
+import {MonitoringPage, Home} from '../../../pages';
 import {MonitoringIndexPage} from '../../../pages/YandexCustom/MonitoringIndexPage/MonitoringIndexPage';
 
 type CustomRouteProps = {
@@ -18,22 +15,12 @@ export const routerConfig: Array<RouteCustomProps> = [
         caseSensitive: false,
     },
     {
-        path: 'yandex',
-        element: <YandexMap />,
-        caseSensitive: false,
-    },
-    {
         path: 'monitoring/*',
         element: <MonitoringPage />,
         caseSensitive: false,
         indexPage: <MonitoringIndexPage />,
     },
     {path: 'upload', element: <h1>Will be soon!</h1>, caseSensitive: false},
-    {
-        path: 'my-geo-map',
-        element: <MyGeoMap />,
-        caseSensitive: false,
-    },
     {
         path: '*',
         element: <h1>Not found</h1>,

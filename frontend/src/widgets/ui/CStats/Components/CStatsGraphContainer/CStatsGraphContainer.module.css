@@ -1,0 +1,28 @@
+.graphContainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 10px;
+    width: 100%;
+    grid-template-rows: 1fr 1fr;
+}
+
+.lineGraph {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.alertMessages {
+    overflow: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 7px;
+}
+
+.alert {
+    width: 100%;
+}

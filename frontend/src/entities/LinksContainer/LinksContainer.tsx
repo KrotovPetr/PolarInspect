@@ -1,6 +1,5 @@
 import {FC} from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
-import classes from './LinksContainer.module.css';
 import {Tabs} from '@gravity-ui/uikit';
 
 export const LinksContainer: FC = () => {
@@ -9,7 +8,7 @@ export const LinksContainer: FC = () => {
 
     const getActiveTab = (pathname: string) => {
         const route = pathname.split('/')[1];
-        return route === 'upload' ? 'upload' : 'monitoring';
+        return route;
     };
 
     return (
@@ -20,7 +19,12 @@ export const LinksContainer: FC = () => {
                 {id: 'monitoring', title: 'Мониторинг'},
             ]}
             onSelectTab={(value: string) => {
-                navigate('/' + value + (value === 'monitoring' ? '/map' : ''));
+                console.log();
+                if (value === 'monitoring') {
+                    navigate('/' + value + (value === 'monitoring' ? '/map' : ''));
+                } else {
+                    navigate('/' + value);
+                }
             }}
         />
     );

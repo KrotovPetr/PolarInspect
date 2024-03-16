@@ -1,1 +1,2 @@
-export * from './YandexMap';
+export * from './YandexCustom';
+export * from './Home';

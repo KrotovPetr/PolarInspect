@@ -11,10 +11,18 @@ type Props = {
     size?: TSize;
 };
 
+const options = {
+    plugins: {
+      legend: {
+        position: 'bottom',
+      },
+    },
+  };
+
 export const PieGraph: FC<Props> = ({data, size = 'xl'}) => {
     return (
         <div className={classes[`pieBox${size.toUpperCase()}`]}>
-            <Pie data={data} />
+            <Pie data={data} options={options as any}/>
         </div>
     );
 };

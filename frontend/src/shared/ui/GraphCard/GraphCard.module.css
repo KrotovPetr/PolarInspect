@@ -1,0 +1,8 @@
+.graphCard {
+    padding: 15px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+}
