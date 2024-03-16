@@ -10,7 +10,7 @@ type Props = {
 export const AsideMenuWithForm: FC<Props> = ({isOpen, callback}) => {
     return (
         <AsideMenu isOpen={isOpen} callback={callback}>
-            <FilterForm />
+            <FilterForm/>
         </AsideMenu>
     );
 };

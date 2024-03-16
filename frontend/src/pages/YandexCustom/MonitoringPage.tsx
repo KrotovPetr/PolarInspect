@@ -1,11 +1,13 @@
-import {Button, Icon, Label, RadioButton} from '@gravity-ui/uikit';
+import {Button, Icon, RadioButton} from '@gravity-ui/uikit';
 import classes from './MonitoringPage.module.css';
 import {useLocation, useNavigate} from 'react-router-dom';
 import {MonitoringIndexPage} from './MonitoringIndexPage/MonitoringIndexPage';
 import {useState} from 'react';
-import {pipes} from '../../widgets/ui/CMap/utils';
 import {Bars} from '@gravity-ui/icons';
 import {AsideMenuWithForm} from '../../widgets/ui/AsideMenuWithForm';
+import {Formik} from 'formik';
+import {Labels} from './Labels';
+import {getInitialValue} from './utils';
 
 export const MonitoringPage = () => {
     const {pathname} = useLocation();
@@ -19,52 +21,49 @@ export const MonitoringPage = () => {
         return pathname.split('/')[2];
     };
 
-    const [currentPipe, setPipe] = useState(pipes);
-
-    const callback = (value: any) => {
-        setPipe(value);
-    };
-    const [isOpen, setIsOpen] = useState(false); // Состояние для открытия/закрытия меню
+    const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
-        console.log(isOpen);
-        setIsOpen(!isOpen); // Изменяем состояние при клике на кнопку
+        setIsOpen((o) => !o);
     };
 
     return (
         <>
-            <div
-                className={classes.customHeader}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    e.stopPropagation();
-                    const route = buildRoute(pathname);
-                    navigate('/' + route + '/' + e.target.value);
+            <Formik
+                initialValues={getInitialValue()}
+                onSubmit={(values: any) => {
+                    console.log(values);
+                    localStorage.setItem('filters', JSON.stringify(values));
+                    toggleMenu();
                 }}
             >
-                <Button className={classes.toggleBtn} onClick={toggleMenu}>
-                    <Icon data={Bars} size={18} />
-                </Button>
-                <div className={classes.filters}>
-                    <Label theme="normal" value={'Бованенково'}>
-                        Район
-                    </Label>
-                    <Label theme="normal" value={'А-137'}>
-                        Участок
-                    </Label>
-                    <Label theme="normal" value={'17-В'}>
-                        Опора
-                    </Label>
-                </div>
-                <RadioButton defaultValue={getDefaultValue(pathname)}>
-                    <RadioButton.Option value="map">Карта</RadioButton.Option>
-                    <RadioButton.Option value="stats">Статистика</RadioButton.Option>
-                    <RadioButton.Option value="drones">Дроны</RadioButton.Option>
-                </RadioButton>
-            </div>
-            <div className={classes.bodyContainer}>
-                <AsideMenuWithForm isOpen={isOpen} callback={() => setIsOpen(false)} />
-                <MonitoringIndexPage />
-            </div>
+                {() => (
+                    <>
+                        <div
+                            className={classes.customHeader}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                                e.stopPropagation();
+                                const route = buildRoute(pathname);
+                                navigate('/' + route + '/' + e.target.value);
+                            }}
+                        >
+                            <Button className={classes.toggleBtn} onClick={toggleMenu}>
+                                <Icon data={Bars} size={18} />
+                            </Button>
+                            <Labels />
+                            <RadioButton defaultValue={getDefaultValue(pathname)}>
+                                <RadioButton.Option value="map">Карта</RadioButton.Option>
+                                <RadioButton.Option value="stats">Статистика</RadioButton.Option>
+                                <RadioButton.Option value="drones">Дроны</RadioButton.Option>
+                            </RadioButton>
+                        </div>
+                        <div className={classes.bodyContainer}>
+                            <AsideMenuWithForm isOpen={isOpen} callback={() => setIsOpen(false)} />
+                            <MonitoringIndexPage />
+                        </div>
+                    </>
+                )}
+            </Formik>
         </>
     );
 };

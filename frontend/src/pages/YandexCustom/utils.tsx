@@ -1,41 +1,7 @@
-import {NavigateFunction} from 'react-router-dom';
+import {initialValue} from '../../features/getFilterForm/ui/utils';
 
-export const buildBreadcrumbsItems = (
-    pathname: string,
-    navigate: NavigateFunction,
-): {text: string; action: () => void}[] => {
-    const [page, type, pipe, point] = pathname.split('/').filter((elem) => elem !== '');
+export const getInitialValue = () => {
+    const parsedValue = localStorage.getItem('filters');
 
-    const defaultBreadcumbs = [
-        {
-            text: 'Мониторинг',
-            action: () => {},
-        },
-        {
-            text: type === 'map' ? 'Карта' : 'Статистика',
-            action: () => {
-                navigate('/monitoring/' + type);
-            },
-        },
-    ];
-
-    if (pipe !== undefined) {
-        defaultBreadcumbs.push({
-            text: pipe,
-            action: () => {
-                navigate('/' + page + '/' + type + '/' + pipe);
-            },
-        });
-    }
-
-    if (pipe !== undefined) {
-        defaultBreadcumbs.push({
-            text: point,
-            action: () => {
-                navigate('/' + page + '/' + type + '/' + pipe + '/' + point);
-            },
-        });
-    }
-
-    return defaultBreadcumbs;
+    return parsedValue ? JSON.parse(parsedValue) : initialValue;
 };
