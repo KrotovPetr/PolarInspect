@@ -7,6 +7,7 @@ export type TPoints = {
     theme: 'Warning' | 'Success' | 'Danger';
     image?: string;
 };
+
 export const points: TPoints[] = [
     {
         id: '1',

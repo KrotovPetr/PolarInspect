@@ -1,0 +1,32 @@
+.modal {
+    padding: 15px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 15px;
+    min-width: 500px;
+}
+
+.modalHeader {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.modalBody {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    max-height: 720px;
+    overflow: auto;
+}
+
+.xmark {
+    cursor: pointer;
+}

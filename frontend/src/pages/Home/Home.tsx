@@ -11,7 +11,7 @@ export const Home = () => {
     ];
     return (
         <Card type="action" className={classes.card}>
-            <Text>Whats new?</Text>
+            <Text>Whats new? Click on "Monitoring"</Text>
             {news.map((elem, id) => (
                 <Alert theme={'normal'} title={elem.date} message={elem.title} key={id} />
             ))}
