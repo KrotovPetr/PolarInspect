@@ -11,7 +11,6 @@ import {useState} from 'react';
 import {CustomModal} from '../../../../../shared/ui';
 import {DroneInfo, PlacemarkInfo} from '../../../../../features';
 import {drones} from './utils';
-import DroneIcon from '../../../../../shared/images/drone.png';
 
 export const MapComponent = ({pipes}: any) => {
     const [openModal, setOpenModal] = useState<any>(false);

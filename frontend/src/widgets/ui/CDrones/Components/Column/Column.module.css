@@ -1,0 +1,22 @@
+.dragNDropColumn {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px;
+    gap: 10px;
+}
+
+.dragNDropColumnBody {
+    overflow: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    width: 100%;
+}
+
+
