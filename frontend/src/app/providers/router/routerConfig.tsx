@@ -21,7 +21,7 @@ export const routerConfig: Array<RouteCustomProps> = [
         caseSensitive: false,
         indexPage: <MonitoringIndexPage />,
     },
-    {path: 'upload', element: <Upload />, caseSensitive: false},
+    {path: 'upload/*', element: <Upload />, caseSensitive: false},
     {
         path: '*',
         element: <h1>Not found</h1>,

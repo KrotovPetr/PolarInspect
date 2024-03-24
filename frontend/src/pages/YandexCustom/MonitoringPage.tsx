@@ -32,7 +32,6 @@ export const MonitoringPage = () => {
             <Formik
                 initialValues={getInitialValue()}
                 onSubmit={(values: any) => {
-                    console.log(values);
                     localStorage.setItem('filters', JSON.stringify(values));
                     toggleMenu();
                 }}

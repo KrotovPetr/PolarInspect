@@ -1,0 +1,46 @@
+.processes {
+    grid-column-end: 4;
+    grid-column-start: 2;
+    grid-row-end: 1;
+    grid-row-start: 3;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.success {
+    grid-column-end: 3;
+    grid-column-start: 2;
+    grid-row-end: 2;
+    grid-row-start: 3;
+}
+
+.pending {
+    grid-column-end: 2;
+    grid-column-start: 1;
+    grid-row-end: 1;
+    grid-row-start: 4;
+}
+
+.failed {
+    grid-column-end: 3;
+    grid-column-start: 2;
+    grid-row-end: 3;
+    grid-row-start: 4;
+}
+
+.inWork {
+    grid-column-end: 3;
+    grid-column-start: 2;
+    grid-row-end: 1;
+    grid-row-start: 2;
+}
+
+.cardsContainer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    gap: 10px;
+    overflow: auto;
+}

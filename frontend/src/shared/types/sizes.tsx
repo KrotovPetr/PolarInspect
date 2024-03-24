@@ -1,1 +1,1 @@
-export type TSize = 's' | 'm' | 'xl';
+export type TSize = 's' | 'm' | 'xl' | 'dynamic';
