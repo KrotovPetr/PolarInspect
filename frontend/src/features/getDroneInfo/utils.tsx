@@ -20,5 +20,5 @@ export const pieGraphData = {
     ],
 };
 
-export const warningsLabels = ['Вода', 'Наледь', 'Таяние'];
-export const dangerLabels = ['Подтопление'];
+export const warningsLabels = ['Следы от транспорта', 'Термокарстовое озеро'];
+export const dangerLabels = ['Эрозийный овраг'];
