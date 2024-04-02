@@ -14,10 +14,10 @@ type Props = {
 export const PlacemarkInfo: FC<Props> = ({content}) => {
     return (
         <>
-            <Label value={'Возможное подтопление опоры'} theme={'danger'}>
+            {/* <Label value={'Возможное подтопление опоры'} theme={'danger'}>
                 Danger
-            </Label>
-            <img src={BadSupport} className={classes.image} />
+            </Label> */}
+            {/* <img src={BadSupport} className={classes.image} /> */}
             <div className={classes.lineGraph}>
                 <LineGraph size="m" data={lineGraphData} name="Alerts" />
                 <LineGraph size="m" data={lineGraphData2} name="Warnings" />

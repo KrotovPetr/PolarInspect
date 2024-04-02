@@ -1,23 +1,16 @@
-import {GeoObject, Map, Placemark, YMaps} from '@pbe/react-yandex-maps';
-import {
-    TPoints,
-    getCoordinates,
-    getPipeColor,
-    getPlacemarkColor,
-    getPointsFromPipes,
-    mapState,
-} from '../../utils';
+import {Map, Placemark, YMaps} from '@pbe/react-yandex-maps';
+import {TPipe, TPoints, getPlacemarkColor, getPointsFromPipes, mapState} from '../../utils';
 import {useState} from 'react';
 import {CustomModal} from '../../../../../shared/ui';
 import {DroneInfo, PlacemarkInfo} from '../../../../../features';
-import {drones} from './utils';
+import {buildGeoObjectPipe, drones} from './utils';
 
 export const MapComponent = ({pipes}: any) => {
     const [openModal, setOpenModal] = useState<any>(false);
     return (
         <>
             <YMaps query={{load: 'package.full'}}>
-                <Map width={'100%'} height={'85vh'} state={mapState}>
+                <Map width={'100%'} height={'85vh'} state={mapState as ymaps.IMapState}>
                     {getPointsFromPipes(pipes).map((point: TPoints) => {
                         return (
                             <Placemark
@@ -35,23 +28,10 @@ export const MapComponent = ({pipes}: any) => {
                         );
                     })}
 
-                    {pipes.map((pipe: any) => {
-                        return (
-                            <GeoObject
-                                geometry={{
-                                    type: 'LineString',
-                                    coordinates: getCoordinates(pipe.children),
-                                }}
-                                options={{
-                                    geodesic: true,
-                                    strokeWidth: 5,
-                                    strokeColor: getPipeColor(pipe.children).color,
-                                }}
-                                key={pipe.name}
-                            />
-                        );
+                    {pipes.map((pipe: TPipe) => {
+                        return buildGeoObjectPipe(pipe);
                     })}
-                    {drones.map((drone: any) => {
+                    {/* {drones.map((drone: any) => {
                         return (
                             <Placemark
                                 defaultGeometry={drone.coordinates}
@@ -66,12 +46,16 @@ export const MapComponent = ({pipes}: any) => {
                                 key={drone.name}
                             />
                         );
-                    })}
+                    })} */}
                 </Map>
             </YMaps>
-            <CustomModal name={'№4632'} open={openModal.isOpen} onClose={() => setOpenModal(false)}>
+            <CustomModal
+                name={`# 183-F`}
+                open={openModal.isOpen}
+                onClose={() => setOpenModal(false)}
+            >
                 {openModal.type === 'drone' ? (
-                    <DroneInfo content={openModal.content}/>
+                    <DroneInfo content={openModal.content} />
                 ) : (
                     <PlacemarkInfo content={openModal.content} />
                 )}

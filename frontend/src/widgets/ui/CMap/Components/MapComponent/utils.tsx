@@ -1,3 +1,7 @@
+import {GeoObject} from '@pbe/react-yandex-maps';
+import {TPipe, getCoordinates, getPipeColor} from '../../utils';
+import {v4 as uuidv4} from 'uuid';
+
 type TDrone = {
     id: string;
     coordinates: number[];
@@ -37,3 +41,25 @@ export const drones: TDrone[] = [
         href: 'https://www.youtube.com/watch?v=_QHdnnaUh38',
     },
 ];
+
+export const buildGeoObjectPipe = (pipe: TPipe) => {
+    const pipes = [];
+    for (let i = 1; i < pipe.children.length; i++) {
+        pipes.push(
+            <GeoObject
+                geometry={{
+                    type: 'LineString',
+                    coordinates: getCoordinates([pipe.children[i - 1], pipe.children[i]]),
+                }}
+                options={{
+                    geodesic: true,
+                    strokeWidth: 5,
+                    strokeColor: getPipeColor([pipe.children[i - 1], pipe.children[i]]).color,
+                }}
+                key={uuidv4()}
+            />,
+        );
+    }
+
+    return pipes;
+};

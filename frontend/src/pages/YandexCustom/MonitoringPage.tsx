@@ -53,7 +53,6 @@ export const MonitoringPage = () => {
                             <RadioButton defaultValue={getDefaultValue(pathname)}>
                                 <RadioButton.Option value="map">Карта</RadioButton.Option>
                                 <RadioButton.Option value="stats">Статистика</RadioButton.Option>
-                                <RadioButton.Option value="drones">Дроны</RadioButton.Option>
                             </RadioButton>
                         </div>
                         <div className={classes.bodyContainer}>
