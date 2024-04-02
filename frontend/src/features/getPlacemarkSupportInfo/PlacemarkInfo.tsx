@@ -26,8 +26,7 @@ export const PlacemarkInfo: FC<Props> = ({content}) => {
             </div>
 
             <div className={classes.lineGraph}>
-                <LineGraph data={lineData1} name="График изменения отклонения" />
-                <LineGraph data={lineData2} name="График отклонений" />
+                <LineGraph data={lineData1} name="График подвижки опоры" />
             </div>
             <div className={classes.buttons}>
                 <Button

@@ -3,7 +3,7 @@ export const lineData1 = {
     labels,
     datasets: [
         {
-            label: 'Warnings',
+            label: 'Подвижка',
             data: [3, 1, 2, 0, 1, 0, 1],
             borderColor: 'rgb(255, 99, 132)',
             backgroundColor: 'rgba(255, 99, 132, 0.5)',
