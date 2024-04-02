@@ -4,6 +4,11 @@ import {FC} from 'react';
 import {Button, Label, Progress, Text} from '@gravity-ui/uikit';
 import {Map, Placemark, YMaps} from '@pbe/react-yandex-maps';
 import {mapState} from '../../widgets/ui/CMap/utils';
+import {lineData2} from '../getPlacemarkSupportInfo/utils';
+import {LineGraph, PieGraph} from '../../shared/ui';
+import {pieGraphData} from '../../widgets/ui/CStats/Components/CStatsGraphContainer/utils';
+import {dangerLabels, warningsLabels} from './utils';
+import {drones} from '../getFilterForm/ui/utils';
 
 type Props = {
     content: any;
@@ -13,62 +18,54 @@ export const DroneInfo: FC<Props> = ({content}) => {
         <div className={classes.droneInfo}>
             <div className={classes.body}>
                 <div className={classes.metrics}>
-                    <Text className={classes.text}>
-                        <span>Модель:</span> <Text>Mavic Air 3</Text>
-                    </Text>
-                    <Text className={classes.text}>
-                        <span>Уровень заряда:</span> <Text>{content.battery}%</Text>
-                    </Text>
-                    <Text className={classes.text}>
-                        <span>Координаты:</span>{' '}
-                        <Text>
+                    <div className={classes.charact}>
+                        <Text color="secondary" className={classes.key}>
+                            Warning:{' '}
+                        </Text>
+                        <div className={classes.labels}>
+                            {warningsLabels.map((warning) => (
+                                <Label theme={'warning'}>{warning}</Label>
+                            ))}
+                        </div>
+                    </div>
+                    <div className={classes.charact}>
+                        <Text color="secondary" className={classes.key}>
+                            Danger:{' '}
+                        </Text>
+                        <div className={classes.labels}>
+                            {dangerLabels.map((warning) => (
+                                <Label theme={'danger'}>{warning}</Label>
+                            ))}
+                        </div>
+                    </div>
+                    <div className={classes.charact}>
+                        <Text color="secondary" className={classes.key}>
+                            Coordinates:{' '}
+                        </Text>
+                        <Text className={classes.labels}>
                             {content.coordinates[0]} {content.coordinates[1]}
                         </Text>
-                    </Text>
-                    <Text className={classes.text}>
-                        <span>Уникальный номер:</span> <Text>{content.id}</Text>
-                    </Text>
-                    <Text className={classes.text}>
-                        <span>Текущий маршрут:</span> <Text>1</Text>
-                    </Text>
-                    <Text className={classes.text}>
-                        <span>Ссылка:</span> <Text ellipsis={true}>{content.href}</Text>
-                    </Text>
+                    </div>
+                    <div className={classes.charact}>
+                        <Text color="secondary" className={classes.key}>
+                            Id:{' '}
+                        </Text>
+                        <Text className={classes.labels}>{content.id}</Text>
+                    </div>
+                    <div className={classes.charact}>
+                        <Text color="secondary" className={classes.key}>
+                            Title:{' '}
+                        </Text>
+                        <Text className={classes.labels}>{content.title}</Text>
+                    </div>
                 </div>
-                <YMaps>
-                    <Map
-                        width={'100%'}
-                        height={'150px'}
-                        state={{
-                            center: content.coordinates,
-                            zoom: 15.4,
-                            behaviors: ['default', 'scrollZoom'],
-                        }}
-                    >
-                        <Placemark
-                            defaultGeometry={content.coordinates}
-                            options={{
-                                iconImageSize: [10, 10],
-                                preset: 'islands#blueDotIcon',
-                            }}
-                        />
-                    </Map>
-                </YMaps>
+                <div className={classes.lineGraph}>
+                    <PieGraph data={pieGraphData} />
+                </div>
             </div>
 
             <div className={classes.iframe}>
-                <ReactPlayer
-                    url={content.href}
-                    loop={true}
-                    stopOnUnmount={true}
-                    playing={true}
-                    width={'100%'}
-                    muted={true}
-                />
-            </div>
-
-            <div className={classes.buttons}>
-                <Button view={'outlined-danger'}>Отозвать</Button>
+                <img src={content.image} className={classes.img} />
             </div>
         </div>
     );

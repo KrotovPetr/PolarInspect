@@ -1,5 +1,12 @@
-import {GeoObject} from '@pbe/react-yandex-maps';
-import {TPipe, getCoordinates, getPipeColor} from '../../utils';
+import {GeoObject, Placemark} from '@pbe/react-yandex-maps';
+import {
+    TPipe,
+    TPoints,
+    getCoordinates,
+    getPipeColor,
+    getPlacemarkColor,
+    getPointsFromPipes,
+} from '../../utils';
 import {v4 as uuidv4} from 'uuid';
 
 type TDrone = {
@@ -8,39 +15,6 @@ type TDrone = {
     title: string;
     href?: string;
 };
-
-export const drones: TDrone[] = [
-    {
-        id: '1',
-        coordinates: [61.702943, 30.691633],
-        title: 'Мавик 1',
-        href: 'https://www.youtube.com/watch?v=p5Fftcg56EU',
-    },
-    {
-        id: '2',
-        coordinates: [61.699046, 30.69357],
-        title: 'Мавик 2',
-        href: 'https://www.youtube.com/watch?v=k2q6y_e1kyY',
-    },
-    {
-        id: '3',
-        coordinates: [61.704223, 30.709222],
-        title: 'Мавик 3',
-        href: 'https://www.youtube.com/watch?v=eNqLtY0bkmk',
-    },
-    {
-        id: '4',
-        coordinates: [61.71024, 30.703145],
-        title: 'Мавик 4',
-        href: 'https://www.youtube.com/watch?v=pB0lxdsGkBs',
-    },
-    {
-        id: '5',
-        coordinates: [61.703691, 30.692875],
-        title: 'Мавик 5',
-        href: 'https://www.youtube.com/watch?v=_QHdnnaUh38',
-    },
-];
 
 export const buildGeoObjectPipe = (pipe: TPipe) => {
     const pipes = [];
@@ -62,4 +36,29 @@ export const buildGeoObjectPipe = (pipe: TPipe) => {
     }
 
     return pipes;
+};
+
+export const buildPlaceMarkMap = (pipes: TPipe[], setOpenModal: (arg1: any) => void) => {
+    getPointsFromPipes(pipes).map((point: TPoints) => {
+        return (
+            <Placemark
+                defaultGeometry={point.coordinates}
+                onClick={() => {
+                    console.log(point.id);
+                    setOpenModal({isOpen: true, content: point, type: 'placemark'});
+                }}
+                options={{
+                    iconImageSize: [10, 10],
+                    preset: getPlacemarkColor(point.theme ?? 'Danger'),
+                }}
+                key={point.id}
+            />
+        );
+    });
+};
+
+export const DEFAULT_MODAL_STATE = {
+    isOpen: false,
+    content: {},
+    type: 'placemark',
 };

@@ -6,9 +6,8 @@ import {handleExport, lineData1, lineData2} from './utils';
 
 type Props = {
     content: any;
-    onClose: () => void;
 };
-export const PlacemarkInfo: FC<Props> = ({content, onClose}) => {
+export const PlacemarkInfo: FC<Props> = ({content}) => {
     return (
         <>
             <div className={classes.description}>

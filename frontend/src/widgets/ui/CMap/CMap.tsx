@@ -1,11 +1,11 @@
 import classes from './CMap.module.css';
 import {MapComponent} from './Components';
-import {pipes} from './utils';
+import {drones} from './utils';
 
 export const CMap = () => {
     return (
         <div className={classes.mapContainer}>
-            <MapComponent pipes={pipes} />
+            <MapComponent pipes={[]} points={drones} type={'CV'} />
         </div>
     );
 };

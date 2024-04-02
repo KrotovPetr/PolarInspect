@@ -1,11 +1,13 @@
 import {FC} from 'react';
 import classes from './CStats.module.css';
-import {CStatsGraphContainer} from './Components';
+import {MapComponent} from '../CMap/Components';
+import {pipes} from '../CMap/utils';
 
 export const CStats: FC = () => {
     return (
         <div className={classes.stats}>
-            <CStatsGraphContainer />
+            {/* <CStatsGraphContainer /> */}
+            <MapComponent pipes={pipes} points={[]} type={'stats'} />
         </div>
     );
 };

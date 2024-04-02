@@ -51,8 +51,8 @@ export const MonitoringPage = () => {
                             </Button>
                             <Labels />
                             <RadioButton defaultValue={getDefaultValue(pathname)}>
-                                <RadioButton.Option value="map">Карта</RadioButton.Option>
-                                <RadioButton.Option value="stats">Статистика</RadioButton.Option>
+                                <RadioButton.Option value="map">CV</RadioButton.Option>
+                                <RadioButton.Option value="stats">Датчики</RadioButton.Option>
                             </RadioButton>
                         </div>
                         <div className={classes.bodyContainer}>
