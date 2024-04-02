@@ -1,29 +1,44 @@
-import {Button, Label} from '@gravity-ui/uikit';
+import {Button, Label, Text} from '@gravity-ui/uikit';
 import {FC} from 'react';
-import BadSupport from '../../shared/images/support2.png';
 import classes from './PlacemarkInfo.module.css';
 import {LineGraph} from '../../shared/ui';
-import {
-    lineGraphData,
-    lineGraphData2,
-} from '../../widgets/ui/CStats/Components/CStatsGraphContainer/utils';
+import {handleExport, lineData1, lineData2} from './utils';
 
 type Props = {
     content: any;
+    onClose: () => void;
 };
-export const PlacemarkInfo: FC<Props> = ({content}) => {
+export const PlacemarkInfo: FC<Props> = ({content, onClose}) => {
     return (
         <>
-            {/* <Label value={'Возможное подтопление опоры'} theme={'danger'}>
-                Danger
-            </Label> */}
-            {/* <img src={BadSupport} className={classes.image} /> */}
+            <div className={classes.description}>
+                <div className={classes.charact}>
+                    <Text className={classes.key}>Статус: </Text>
+                    <Label theme={content ? content.theme.toLowerCase() : 'danger'}>
+                        {content.title || ''}
+                    </Label>
+                </div>
+                <div className={classes.charact}>
+                    <Text className={classes.key}>Координаты: </Text>
+                    <Text>
+                        {content.coordinates[0]} {content.coordinates[1]}
+                    </Text>
+                </div>
+            </div>
+
             <div className={classes.lineGraph}>
-                <LineGraph size="m" data={lineGraphData} name="Alerts" />
-                <LineGraph size="m" data={lineGraphData2} name="Warnings" />
+                <LineGraph data={lineData1} name="График изменения отклонения" />
+                <LineGraph data={lineData2} name="График отклонений" />
             </div>
             <div className={classes.buttons}>
-                <Button view="outlined-info">Отчёт</Button>
+                <Button
+                    view="outlined-info"
+                    onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                        handleExport(e);
+                    }}
+                >
+                    Export CSV
+                </Button>
             </div>
         </>
     );

@@ -7,6 +7,7 @@ import {buildGeoObjectPipe, drones} from './utils';
 
 export const MapComponent = ({pipes}: any) => {
     const [openModal, setOpenModal] = useState<any>(false);
+    console.log(openModal);
     return (
         <>
             <YMaps query={{load: 'package.full'}}>
@@ -49,17 +50,22 @@ export const MapComponent = ({pipes}: any) => {
                     })} */}
                 </Map>
             </YMaps>
-            <CustomModal
-                name={`# 183-F`}
-                open={openModal.isOpen}
-                onClose={() => setOpenModal(false)}
-            >
-                {openModal.type === 'drone' ? (
-                    <DroneInfo content={openModal.content} />
-                ) : (
-                    <PlacemarkInfo content={openModal.content} />
-                )}
-            </CustomModal>
+            {openModal.content && (
+                <CustomModal
+                    name={`# 183-F`}
+                    open={openModal.isOpen}
+                    onClose={() => setOpenModal(false)}
+                >
+                    {openModal.type === 'drone' ? (
+                        <DroneInfo content={openModal.content} />
+                    ) : (
+                        <PlacemarkInfo
+                            content={openModal.content}
+                            onClose={() => setOpenModal(false)}
+                        />
+                    )}
+                </CustomModal>
+            )}
         </>
     );
 };
